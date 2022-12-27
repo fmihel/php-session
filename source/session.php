@@ -1,36 +1,55 @@
 <?php
 namespace fmihel;
 
-use fmihel\session\SessionDefault;
-
 require_once __DIR__.'/session/iSession.php';
-require_once __DIR__.'/router/on.before.php';
-require_once __DIR__.'/session/default.php';
+require_once __DIR__.'/session/SessionDefault.php';
 
 class session {
 
     public static $session;
 
+    public static function init($sessionClass = 'fmihel\session\SessionDefault'){
+        session::$session = new  $sessionClass();
+    }
+
     public static function autorize($param = []){
         if (self::$session){
             return self::$session->autorize($param);
-        }
-        throw new \Exception('session::$session = false');   
+        }else
+            throw new \Exception('session::$session = false');   
     }
 
     public static function logout(){
         if (self::$session){
             self::$session->logout();
-        }
-        throw new \Exception('session::$session = false');   
+        }else
+            throw new \Exception('session::$session = false');   
     }
     public static function enabled(){
         if (self::$session){
             return self::$session->enabled();
-        };
-        throw new \Exception('session::$session = false');   
+        }else
+            throw new \Exception('session::$session = false');   
     }
 
 }
 
-session::$session = new SessionDefault();
+
+router::on('before',function($pack){
+
+    if ($pack['to'] ==='session/autorize'){
+        
+        router::out(session::autorize(router::$data));        
+
+    }if ($pack['to'] ==='session/logout'){
+
+        session::logout();
+        router::out(['session'=>[]]);        
+
+    }else{
+        if (  !isset($pack['session']) || ! session::autorize($pack['session']) )  {
+            throw new \Exception('need autorize');
+        };
+    }
+    return $pack;
+});
