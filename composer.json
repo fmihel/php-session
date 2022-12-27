@@ -1,0 +1,26 @@
+{
+    "name": "fmihel/php-session",
+    "description": "php,session,plugin,router",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "fmihel",
+            "email": "fmihel76@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "fmihel\\": "source"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "fmihel\\test\\": "tests"
+        }
+    },
+    "require": {
+        "fmihel/console-log": "^1.4",
+        "fmihel/php-router": "dev-dev"
+    }
+}
