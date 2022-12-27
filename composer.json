@@ -21,6 +21,6 @@
     },
     "require": {
         "fmihel/console-log": "^1.4",
-        "fmihel/php-router": "dev-dev"
+        "fmihel/php-router": "v2.x-dev"
     }
 }

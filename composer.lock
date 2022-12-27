@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9cc3d55702fa0c572d04e5029904fe65",
+    "content-hash": "560666366ebdb2031fdb7f1f3d0abf18",
     "packages": [
         {
             "name": "fmihel/console-log",
@@ -48,16 +48,16 @@
         },
         {
             "name": "fmihel/php-router",
-            "version": "dev-dev",
+            "version": "v2.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fmihel/php-router.git",
-                "reference": "a171527801b7436ee503ab54b6de124d20d091f5"
+                "reference": "9678e81f936730d08f20f4159952d7da0dec11ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fmihel/php-router/zipball/a171527801b7436ee503ab54b6de124d20d091f5",
-                "reference": "a171527801b7436ee503ab54b6de124d20d091f5",
+                "url": "https://api.github.com/repos/fmihel/php-router/zipball/9678e81f936730d08f20f4159952d7da0dec11ce",
+                "reference": "9678e81f936730d08f20f4159952d7da0dec11ce",
                 "shasum": ""
             },
             "type": "library",
@@ -79,9 +79,9 @@
             "description": "php,router",
             "support": {
                 "issues": "https://github.com/fmihel/php-router/issues",
-                "source": "https://github.com/fmihel/php-router/tree/dev"
+                "source": "https://github.com/fmihel/php-router/tree/v2"
             },
-            "time": "2022-10-20T10:48:54+00:00"
+            "time": "2022-12-23T12:35:46+00:00"
         }
     ],
     "packages-dev": [],
