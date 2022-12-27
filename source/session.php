@@ -3,6 +3,7 @@ namespace fmihel;
 
 use fmihel\session\SessionDefault;
 
+require_once __DIR__.'/session/iSession.php';
 require_once __DIR__.'/router/on.before.php';
 require_once __DIR__.'/session/default.php';
 
