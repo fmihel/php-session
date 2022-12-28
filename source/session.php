@@ -8,28 +8,19 @@ class session {
 
     public static $session;
 
-    public static function init($sessionClass = 'fmihel\session\SessionDefault'){
+    public static function use($sessionClass = 'fmihel\session\SessionDefault'){
         session::$session = new  $sessionClass();
     }
 
     public static function autorize($param = []){
-        if (self::$session){
-            return self::$session->autorize($param);
-        }else
-            throw new \Exception('session::$session = false');   
+        return self::$session->autorize($param);
     }
 
     public static function logout(){
-        if (self::$session){
-            self::$session->logout();
-        }else
-            throw new \Exception('session::$session = false');   
+        self::$session->logout();
     }
     public static function enabled(){
-        if (self::$session){
-            return self::$session->enabled();
-        }else
-            throw new \Exception('session::$session = false');   
+        return self::$session->enabled();
     }
 
 }
@@ -47,8 +38,8 @@ router::on('before',function($pack){
         router::out(['session'=>[]]);        
 
     }else{
-        if (  !isset($pack['session']) || ! session::autorize($pack['session']) )  {
-            throw new \Exception('need autorize');
+        if ( !isset($pack['session']) || empty(session::autorize($pack['session']))) {
+                router::error('need autorize',['logout'=>1]);
         };
     }
     return $pack;
