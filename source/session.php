@@ -39,8 +39,8 @@ router::on('before',function($pack){
 
     }else{
         if ( !isset($pack['session']) || empty(session::autorize($pack['session']))) {
-                router::error('need autorize',['logout'=>1]);
-        };
+                router::error('no autorize',['session'=>[]]);
+        }
     }
     return $pack;
 });
