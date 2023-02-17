@@ -45,7 +45,7 @@ class SessionDefault implements iSession{
             
             $find = true;
             foreach($FieldValue as $field=>$value){
-                $find = $user[$field] !== $value;
+                $find = $user[$field] == $value;
                 if (!$find)
                     break;
             };
